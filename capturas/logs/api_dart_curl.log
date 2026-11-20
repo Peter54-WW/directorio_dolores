@@ -1,0 +1,22 @@
+$ curl localhost:3000/salud
+{"ok":true}
+$ curl localhost:3000/negocios
+[{"id":1,"nombre":"Nieves de la Plaza","categoria":"Nevería","telefono":"418-100-0001","favorito":true},{"id":2,"nombre":"Talavera La Esperanza","categoria":"Artesanías","telefono":"418-100-0002","favorito":false},{"id":3,"nombre":"Tacos Don Chema","categoria":"Comida","telefono":"418-100-0003","favorito":false},{"id":4,"nombre":"Dulces Cajeta Real","categoria":"Dulcería","telefono":"418-100-0004","favorito":true},{"id":5,"nombre":"Papelería El Cura","categoria":"Papelería","telefono":"418-100-0005","favorito":false}]
+$ curl -X POST localhost:3000/negocios -d {"nombre":"Mi tienda","categoria":"Abarrotes"}
+{"id":6,"nombre":"Mi tienda","categoria":"Abarrotes","telefono":"","favorito":false}
+$ curl -i localhost:3000/negocios/99   (reto: no existe)
+HTTP/1.1 404 Not Found
+$ curl -i -X POST localhost:3000/negocios -d {"nombre":"X"}   (reto: sin categoria)
+HTTP/1.1 400 Bad Request
+{"error":"nombre y categoria son obligatorios"}
+$ curl -X DELETE localhost:3000/negocios/6
+HTTP 204
+--- consola del servidor ---
+API lista en http://localhost:3000/negocios
+01:47:50 GET /salud
+01:47:51 GET /salud
+01:47:52 GET /negocios
+01:47:53 POST /negocios
+01:47:54 GET /negocios/99
+01:47:56 POST /negocios
+01:47:56 DELETE /negocios/6

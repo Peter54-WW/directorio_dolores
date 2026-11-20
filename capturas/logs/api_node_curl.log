@@ -1,0 +1,15 @@
+$ curl localhost:3000/salud
+{"ok":true}
+$ curl "localhost:3000/negocios?q=tacos"
+[{"id":3,"nombre":"Tacos Don Chema","categoria":"Comida","telefono":"418-100-0003","favorito":false}]
+$ curl -X PUT localhost:3000/negocios/3 -d {"favorito":true}
+{"id":3,"nombre":"Tacos Don Chema","categoria":"Comida","telefono":"418-100-0003","favorito":true}
+$ curl -i localhost:3000/negocios/99
+HTTP/1.1 404 Not Found
+--- consola del servidor (node server.js) ---
+API lista en http://localhost:3000/negocios
+1:49:32 a.m. GET /salud
+1:49:33 a.m. GET /salud
+1:49:33 a.m. GET /negocios
+1:49:34 a.m. PUT /negocios/3
+1:49:34 a.m. GET /negocios/99
